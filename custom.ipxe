@@ -8,6 +8,7 @@ clear custom_choice
 menu This is a lazyest Menu
 item --gap This is the first sub menu
 item option_one ${space} Loading an ZStack ISO
+item option_two ${space} Loading an ZStack ISO 5.x
 choose custom_choice || goto custom_exit
 echo ${cls}
 goto ${custom_choice}
@@ -16,6 +17,11 @@ goto custom_exit
 :option_one
 kernel https://boot.netboot.xyz/memdisk raw iso
 initrd http://192.168.103.7:8082/boot.iso
+boot || goto custom_exit
+
+:option_two
+kernel https://boot.netboot.xyz/memdisk raw iso
+initrd http://192.168.103.7:8082/ZStack-Cloud-x86_64-DVD-5.5.38-h84r.iso 
 boot || goto custom_exit
 
 :custom_exit
